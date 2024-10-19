@@ -16,5 +16,6 @@ async function bootstrap() {
   const PORT = process.env.PORT || 8080;
   await app.listen(PORT);
   console.log(`Aplicação rodando na porta ${PORT}`);
+  console.log(`Documentação disponível em ${process.env.NODE_ENV}`);
 }
 bootstrap();
