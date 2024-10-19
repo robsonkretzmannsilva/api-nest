@@ -19,13 +19,16 @@ jobs:
         node-version: '20.x'
 
     - name: Install dependencies
-      run: npm install
+      run: npm ci
 
     - name: Build the project
       run: npm run build
 
+    - name: List files in dist
+      run: ls -la dist
+
     - name: Archive production artifacts
-      run: zip -r build.zip dist
+      run: zip -r build.zip dist web.config # Inclui web.config se necessário
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
