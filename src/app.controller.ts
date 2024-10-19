@@ -1,17 +1,23 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { AppService } from './app.service';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 
 @ApiTags('API')
-@Controller('api')
+@Controller('')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get("/hello")
   @ApiOperation({ summary: 'Retorna uma mensagem de boas-vindas' })
   @ApiResponse({ status: 200, description: 'Retorna a mensagem' })
   getHello(): string {
     return this.appService.getHello();
+  }
+
+  @Get()
+  redirectToSwagger(@Res() res: Response) {
+    return res.redirect('/swagger');
   }
 }
