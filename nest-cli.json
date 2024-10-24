@@ -4,5 +4,11 @@
   "sourceRoot": "src",
   "compilerOptions": {
     "deleteOutDir": true
+  },
+  "buildOptions": {
+    "watch": true,
+    "outputHash": true,
+    "extractCss": true,
+    "verbose": true
   }
 }
