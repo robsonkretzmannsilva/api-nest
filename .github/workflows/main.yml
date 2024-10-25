@@ -22,7 +22,7 @@ jobs:
       run: npm ci
 
     - name: Build the project
-      run: npm start
+      run: npm run build
 
     - name: List files in dist
       run: ls -la dist
